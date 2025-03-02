@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waseda Event Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function showTab(index) {
+                var contents = document.querySelectorAll(".tab-content");
+                var tabs = document.querySelectorAll(".tab1, .tab2, .tab3");
+        
+                // Hide all tab contents
+                for (var i = 0; i < contents.length; i++) {
+                    contents[i].style.display = "none";
+                }
+        
+                // Remove active styling from all tabs
+                for (var j = 0; j < tabs.length; j++) {
+                    tabs[j].classList.remove("active-tab");
+                }
+        
+                // Show the selected tab content
+                if (contents[index]) {
+                    contents[index].style.display = "block";
+                    tabs[index].classList.add("active-tab");
+                }
+            }
+        
+            // Select all tab elements
+            var tabElements = document.querySelectorAll(".tab1, .tab2, .tab3");
+        
+            // Attach event listeners to each tab
+            for (var k = 0; k < tabElements.length; k++) {
+                tabElements[k].addEventListener("click", function(event) {
+                    var index = Array.from(tabElements).indexOf(event.currentTarget);
+                    showTab(index);
+                });
+            }
+        
+            // Show the first tab by default on page load
+            showTab(0);
+        });
+        </script>
+</head>
+
+<body>
+<!--Header-->
+<header>
+<div class="header">
+    <div class="projectName">
+    <p>Project Name</p>
+    </div>
+    <p>About Us</p>
+    <p>FAQ</p>
+    <p>Contact</p>
+    <p>Log In</p>
+    <div class="signUp">
+    <p>Sign Up</p>
+    </div>
+</div>
+</header>
+<!--Top of Landing Page-->
+<div class="topText">
+<h1>Friendship Starts Here.</h1>
+<p>Sick of spending lunch break alone?</p>
+<p>Want to join events catered to your interests?</p>
+<p>Join and host events of your own now!</p>
+</div>
+<div class="joinButton">
+<p>JOIN NOW</p>
+</div>
+<!--Event Section-->
+<div class="tabs">
+    <div class="tab1" onclick="showTab(0)">
+        <img src="images/gradcap.png">
+        <p>Events Hosted By Waseda</p>
+    </div>
+
+    <div class="tab2" onclick="showTab(1)">
+        <img src="images/students.png">
+        <p>Created & Hosted By Students</p>
+    </div>
+
+    <div class="tab3" onclick="showTab(2)">
+        <img src="images/searchicon.png">
+        <p>Search By Organization/Category</p>
+    </div>
+</div>
+
+<!-- Tab 1 Content Sections -->
+<div class="tab-content" id="tab1-content">
+    <h2>Events Hosted By Waseda</h2>
+    <p>Here you can find events organized by Waseda University.</p> <div class="eventCards">
+    <div>EVENT DETAILS</div>
+    <div>EVENT DETAILS</div>
+    <div>EVENT DETAILS</div>  
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>  
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+</div>
+</div>
+<!-- Tab 2 Content Sections -->
+<div class="tab-content" id="tab2-content">
+    <h2>Created & Hosted By Students</h2>
+    <p>Discover events created by students for students.</p>
+</div>
+<!-- Tab 3 Content Sections -->
+<div class="tab-content" id="tab3-content">
+    <h2>Search By Organization/Category</h2>
+    <p>Find events based on clubs, societies, or categories.</p> 
+</div>
+<!--Footer-->
+<footer>
+    <p>this is the footer</p>
+</footer>
+</body>
+</html>
